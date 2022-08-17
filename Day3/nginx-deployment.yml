@@ -1,26 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: deploy-app
   labels:
-    app: mydeployment
+    app:  nginx-deploy
     kind: frontend
 spec:
   template:
     metadata:
-      name: my-first-pod
+      name: my-nginx
       labels:
-        app: myFirstPod
+        app: nginx-deploy
         type: frontend
     spec:
       containers:
         - name: nginx
-          image: nginx
-      volumes:
-        - name: nginx-vol
-          persistentVolumeClaim:
-            claimName: lab-pvc
-  replicas: 5
+          image: nginx:alpine
+  replicas: 3
   selector:
     matchLabels:
       type: frontend
