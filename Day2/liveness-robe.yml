@@ -1,4 +1,4 @@
-piVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8s-probes
@@ -25,3 +25,11 @@ spec:
           timeoutSeconds: 1
           successThreshold: 3
           failureThreshold: 3
+          httpGet:
+            host:
+            scheme: HTTP
+            path: /
+            httpHeaders:
+            - name: Host
+              value: myapplication1.com
+            port: 80
