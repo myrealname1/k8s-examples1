@@ -18,4 +18,4 @@ spec:
         - cat
         - /tmp/healthy
       initialDelaySeconds: 5
-      periodSeconds: 1
+      periodSeconds: 3
