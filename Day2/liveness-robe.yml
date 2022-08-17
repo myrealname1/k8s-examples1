@@ -15,16 +15,16 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: healthy-pod
+      - name: nginx
         image: nginx
         ports:
         - containerPort: 80
         livenessProbe:
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          initialDelaySeconds: 1
+          periodSeconds: 2
           timeoutSeconds: 1
-          successThreshold: 3
-          failureThreshold: 3
+          successThreshold: 1
+          failureThreshold: 1
           httpGet:
             host:
             scheme: HTTP
