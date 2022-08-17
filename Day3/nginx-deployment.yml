@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy-app
+  name: deploy-game
   labels:
-    app:  nginx-deploy
+    app:  runway-deploy
     kind: frontend
 spec:
   template:
     metadata:
-      name: my-nginx
+      name: my-runway
       labels:
-        app: nginx-deploy
+        app: runway-deploy
         type: frontend
     spec:
       containers:
-        - name: nginx
-          image: nginx:alpine
-  replicas: 3
+        - name: runway
+          image:  hanansalem88/runway:latest
   selector:
     matchLabels:
       type: frontend
