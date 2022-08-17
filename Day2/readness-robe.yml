@@ -1,7 +1,7 @@
-piVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-probes
+  name: k8s-example
   labels:
     app: nginx
 spec:
@@ -19,9 +19,9 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
-        livenessProbe:
+        readinessProbe:
           initialDelaySeconds: 5
-          periodSeconds: 5
+          periodSeconds: 7
           timeoutSeconds: 1
           successThreshold: 3
           failureThreshold: 3
