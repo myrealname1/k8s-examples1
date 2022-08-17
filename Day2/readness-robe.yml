@@ -1,27 +1,16 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   name: k8s-example
   labels:
-    app: nginx
+    app: nginx-service
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
+  containers:
       - name: healthy-pod
         image: nginx
-        ports:
-        - containerPort: 80
-        readinessProbe:
-          initialDelaySeconds: 5
-          periodSeconds: 7
-          timeoutSeconds: 1
-          successThreshold: 3
-          failureThreshold: 3
+  readinessProbe:
+    initialDelaySeconds: 5
+    periodSeconds: 7
+    timeoutSeconds: 1
+    successThreshold: 3
+    failureThreshold: 3
