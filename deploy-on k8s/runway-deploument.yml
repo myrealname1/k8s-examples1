@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: game
+  name: runway-game
+  namespace: game
+spec:
+  selector:
+    matchLabels:
+      app: game
+  template:
+    metadata:
+      labels:
+        app: game
+    spec:
+      containers:
+      - image: dockersamples/examplevotingapp_game:before
+        name: game
+        ports:
+        - containerPort: 80
+          name: game
