@@ -8,9 +8,9 @@ spec:
   type: NodePort
   ports:
     - name: http
-      port: 80 #This is a serive port
-      targetPort: 80 #This is the target port of the pods
-      nodePort: 31089 #This port is enable on node to send the traffic
+      port: 80 
+      targetPort: 80 
+      nodePort: 31089 
       protocol: TCP
   selector:
       app: nginx
