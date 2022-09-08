@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: runaway
+  name: runaway
+  namespace: game
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: runaway
+  template:
+    metadata:
+      labels:
+        app: runaway
+    spec:
+      containers:
+      - image: dockersamples/examplevotingapp_result:before
+        name: runaway
+        ports:
+        - containerPort: 80
+          name: runaway

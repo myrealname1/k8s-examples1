@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: runaway
+  name: runaway
+  namespace: game
+spec:
+  type: NodePort
+  ports:
+  - name: "runway-service"
+    port: 8080
+    targetPort: 80
+    nodePort: 30001
+  selector:
+    app: runaway
